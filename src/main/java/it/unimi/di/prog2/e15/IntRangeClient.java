@@ -21,6 +21,9 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e15;
 
+import java.util.Iterator;
+import java.util.Scanner;
+
 /** A class to test int ranges. */
 public class IntRangeClient {
 
@@ -51,35 +54,39 @@ public class IntRangeClient {
    *
    * @param args not used.
    */
-
-  /*- Uncomment and complete once you have implemented the range class
-
     public static void main(String[] args) {
-      // declare the range...
+      IntRange range = new IntRange();
+      Iterator<Integer> it = range.iterator();
       try (Scanner sc = new Scanner(System.in)) {
         while (sc.hasNext()) {
           char command = sc.next().charAt(0);
           int value = sc.nextInt();
           switch (command) {
             case 'F':
-              // set the from the range
+              range.setFrom(value);
               break;
             case 'T':
-              // set the to the range
+              range.setTo(value);
               break;
             case 'S':
-              // set the step the range
+              range.setStep(value);
               break;
             default:
               throw new IllegalArgumentException("Unknown command: " + command);
           }
         }
       }
+      
       int iterations = 0, first = 0, last = 0;
-      // complete...
+      if (it.hasNext()) {
+        first = it.next();
+        iterations++;
+        while (it.hasNext()) {
+          iterations++;
+          last = it.next();
+        }
+      }
       System.out.println(
           iterations + (iterations > 0 ? " " + first : "") + (iterations > 1 ? " " + last : ""));
     }
-
-  */
 }
